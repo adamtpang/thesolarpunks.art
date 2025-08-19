@@ -274,7 +274,7 @@ body {
 .episodes-grid {
     display: grid;
     gap: 4rem;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -330,26 +330,33 @@ body {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 65%; /* Slightly taller aspect ratio */
+    padding-bottom: 70%; /* Taller for mobile */
     background: var(--background-card);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 8px 40px rgba(0, 255, 136, 0.2);
-    border: 2px solid var(--border);
-    min-height: 450px;
+    box-shadow: 0 12px 48px rgba(0, 255, 136, 0.25);
+    border: 3px solid var(--border);
+    min-height: 400px;
 }
 
 @media (min-width: 768px) {
     .video-embed {
-        min-height: 500px;
-        padding-bottom: 60%;
+        min-height: 600px;
+        padding-bottom: 50%; /* Much wider aspect ratio */
     }
 }
 
 @media (min-width: 1024px) {
     .video-embed {
-        min-height: 600px;
-        padding-bottom: 55%;
+        min-height: 700px;
+        padding-bottom: 45%; /* Very wide for desktop prominence */
+    }
+}
+
+@media (min-width: 1440px) {
+    .video-embed {
+        min-height: 800px;
+        padding-bottom: 40%; /* Ultra-wide for large screens */
     }
 }
 
@@ -865,8 +872,15 @@ button:focus {
 }
 
 .audio-log iframe {
-    border-radius: 6px;
+    border-radius: 12px;
     background: var(--background-light);
+    height: 400px;
+}
+
+@media (min-width: 768px) {
+    .audio-log iframe {
+        height: 450px;
+    }
 }
 
 .soundcloud-credit {
@@ -965,8 +979,20 @@ button:focus {
     width: 100%;
     height: auto;
     background: white;
-    min-height: 500px;
-    border-radius: 8px;
+    min-height: 600px;
+    border-radius: 12px;
+}
+
+@media (min-width: 768px) {
+    .pdf-canvas {
+        min-height: 700px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .pdf-canvas {
+        min-height: 800px;
+    }
 }
 
 .pdf-fallback {
