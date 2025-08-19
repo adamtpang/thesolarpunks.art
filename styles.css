@@ -339,25 +339,26 @@ body {
     padding: 1rem 0;
 }
 
-.episode-number {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--solarpunk-mint);
-    margin-bottom: 1rem;
-    opacity: 0.9;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-}
 
 .episode-title {
     font-family: 'Space Mono', monospace;
     font-size: 2.25rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     line-height: 1.3;
     letter-spacing: 0.05em;
+    text-transform: lowercase;
+}
+
+.episode-subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--solarpunk-green);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
     text-transform: lowercase;
 }
 
@@ -994,6 +995,12 @@ button, a, .pdf-btn {
     
     .episode-title {
         font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .episode-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1rem;
     }
     
     .section-title {
