@@ -3,206 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Solarpunks - A Solarpunk Video Series</title>
-    <meta name="description" content="An optimistic vision of the future through solarpunk storytelling. Three episodes exploring technology, nature, and human connection.">
-    <meta name="keywords" content="solarpunk, science fiction, optimistic future, sustainability, technology, art contest">
+    <title>thesolarpunks.art</title>
+    <meta name="description" content="An independent artist's exploration of optimistic futures through three interconnected solarpunk stories.">
+    <meta name="keywords" content="solarpunk, art, independent artist, optimistic future, video series">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Solarpunks - Three Perspectives on Tomorrow">
+    <meta property="og:description" content="An independent artist's exploration of optimistic futures">
+    <meta property="og:url" content="https://thesolarpunks.art">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://thesolarpunks.art/">
-    <meta property="og:title" content="The Solarpunks - A Solarpunk Video Series">
-    <meta property="og:description" content="An optimistic vision of the future through solarpunk storytelling">
     
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://thesolarpunks.art/">
-    <meta property="twitter:title" content="The Solarpunks - A Solarpunk Video Series">
-    <meta property="twitter:description" content="An optimistic vision of the future through solarpunk storytelling">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Solarpunks - Three Perspectives on Tomorrow">
+    <meta name="twitter:description" content="An independent artist's exploration of optimistic futures">
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
+
 <body>
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="background-effects">
-            <div class="bg-orb bg-orb-1"></div>
-            <div class="bg-orb bg-orb-2"></div>
-            <div class="bg-orb bg-orb-3"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title gradient-text">The Solarpunks</h1>
-            <p class="hero-subtitle">Three stories from an optimistic future where technology and nature dance together</p>
-            
-            <div class="hero-meta">
-                <p class="contest-info">A solarpunk video series crafted for an art contest</p>
-                <div class="made-today-badge">
-                    <span>⚡ Made in a day • <span id="current-date"></span></span>
-                </div>
+    <!-- Subtle Solarpunk Background -->
+    <div class="solarpunk-bg">
+        <div class="solarpunk-pattern"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-brand">the solarpunks</div>
+            <div class="nav-links">
+                <a href="#episodes">episodes</a>
+                <a href="#about">about</a>
             </div>
-            
-            <button onclick="scrollToSection('episodes')" class="cta-button">
-                Watch Episodes
-            </button>
         </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-dot"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">the solarpunks</h1>
+                <p class="hero-subtitle">a fictional universe in <span class="highlight-three">three</span> acts</p>
             </div>
         </div>
     </section>
 
     <!-- Episodes Section -->
-    <section id="episodes" class="episodes-section">
+    <section id="episodes" class="episodes">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title gradient-text">Episodes</h2>
-                <p class="section-subtitle">Three unique perspectives on our solarpunk future, each telling a different story of hope and innovation</p>
+            <div class="section-header-with-scroll">
+                <h2 class="section-title">episodes</h2>
+                
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator">
+                    <div class="scroll-text">scroll to explore 3 acts</div>
+                    <div class="scroll-mouse">
+                        <div class="scroll-dot"></div>
+                    </div>
+                    <div class="scroll-arrows">
+                        <div class="scroll-arrow">↓</div>
+                        <div class="scroll-arrow">↓</div>
+                        <div class="scroll-arrow">↓</div>
+                    </div>
+                </div>
             </div>
             
             <div class="episodes-grid">
-                <div class="episode-card" data-episode="1">
-                    <div class="episode-number">1</div>
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            title="Game Trailer Manifesto"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="episode-info">
-                        <div class="episode-header">
-                            <h3 class="episode-title">Game Trailer Manifesto</h3>
-                            <span class="episode-theme theme-green">Epic Introduction</span>
+                <!-- Episode 1 -->
+                <article class="episode-card">
+                    <div class="episode-video">
+                        <div class="video-embed">
+                            <iframe 
+                                src="https://www.youtube.com/embed/XHLkEImuiLQ" 
+                                title="Manifesto"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
                         </div>
+                    </div>
+                    <div class="episode-content">
+                        <div class="episode-number">01</div>
+                        <h3 class="episode-title">manifesto</h3>
                         <p class="episode-description">
-                            An epic solarpunk introduction that reads like David Attenborough narrating a game trailer. 
-                            Witness the beauty of a world where technology blooms alongside nature.
+                            epic game trailer introducing solarpunk philosophy
                         </p>
-                    </div>
-                </div>
-                
-                <div class="episode-card" data-episode="2">
-                    <div class="episode-number">2</div>
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            title="Beetlemoses Comic"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="episode-info">
-                        <div class="episode-header">
-                            <h3 class="episode-title">Beetlemoses Comic</h3>
-                            <span class="episode-theme theme-blue">Cosmic Comedy</span>
+                        <div class="episode-story">
+                            <p>this piece emerged from frustration with endless climate doom-scrolling. instead of another dystopian warning, i wanted to create a rallying cry - a david attenborough-style nature documentary about the future we're actually building.</p>
+                            <p>the script draws from real solarpunk manifestos and kim stanley robinson's optimistic sci-fi, presenting technology not as nature's enemy but as its greatest ally. every visual showcases real emerging technologies: fusion reactors, atmospheric processors, living architecture.</p>
+                            <p>this isn't fantasy - it's a preview of what happens when we choose gardening over conquering.</p>
                         </div>
-                        <p class="episode-description">
-                            Hilarious aliens review and upgrade Earth in this Rick & Morty style comedy. 
-                            Watch as extraterrestrial visitors hilariously critique and improve our planet's systems.
-                        </p>
                     </div>
-                </div>
-                
-                <div class="episode-card" data-episode="3">
-                    <div class="episode-number">3</div>
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            title="ASMR Tinkerer"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="episode-info">
-                        <div class="episode-header">
-                            <h3 class="episode-title">ASMR Tinkerer</h3>
-                            <span class="episode-theme theme-orange">Slice of Life</span>
+                </article>
+
+                <!-- Episode 2 -->
+                <article class="episode-card">
+                    <div class="episode-pdf">
+                        <div class="pdf-viewer" id="pdf-viewer">
+                            <div class="pdf-header">
+                                <h4>sunday comic: galactic review</h4>
+                                <div class="pdf-controls">
+                                    <button id="prev-page" class="pdf-btn">←</button>
+                                    <span id="page-info">1 / 4</span>
+                                    <button id="next-page" class="pdf-btn">→</button>
+                                </div>
+                            </div>
+                            <canvas id="pdf-canvas" class="pdf-canvas"></canvas>
+                            <div class="pdf-fallback" style="display: none;">
+                                <p>pdf viewer not supported.</p>
+                                <a href="sunday_comic.pdf" download class="download-btn">download sunday comic</a>
+                            </div>
                         </div>
-                        <p class="episode-description">
-                            Follow a female engineer as she lovingly works on her robot companion. 
-                            A slice-of-life story set to gentle rain sounds, celebrating the intimate relationship between creator and creation.
-                        </p>
                     </div>
-                </div>
-            </div>
-            
-            <div class="episodes-cta">
-                <p>Ready to explore the solarpunk future?</p>
-                <button onclick="scrollToSection('about')" class="secondary-button">
-                    Learn About Solarpunk
-                </button>
+                    <div class="episode-content">
+                        <div class="episode-number">02</div>
+                        <h3 class="episode-title">galactic review</h3>
+                        <p class="episode-description">
+                            sunday comic: alien social commentary on human efficiency
+                        </p>
+                        <div class="episode-story">
+                            <p>inspired by douglas adams' wit and sunday comic strips, this alien commentary serves as gentle social satire. two cosmic observers critique humanity's backwards systems with the detached amusement of anthropologists studying a peculiar species.</p>
+                            <p>why do humans cover soil with concrete? why burn ancient plants when a fusion reactor hangs in the sky? the aliens represent our better angels - the voice that knows there's a simpler way to live.</p>
+                            <p>their "upgrades" aren't sci-fi magic, but basic logic: solar panels, local food, breathable cities. comedy makes the medicine go down easier.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Episode 3 -->
+                <article class="episode-card">
+                    <div class="episode-content">
+                        <div class="episode-number">03</div>
+                        <h3 class="episode-title">aria's workshop</h3>
+                        <p class="episode-description">
+                            asmr engineer building robot companion
+                        </p>
+                        <div class="episode-story">
+                            <p>this intimate piece explores the emotional core of solarpunk - technology with soul. samantha's relationship with aria represents our deepest hope: that artificial intelligence might amplify our capacity for care rather than replace it.</p>
+                            <p>the workshop setting grounds grand futures in human-scale moments. while episodes 1 and 2 show solarpunk from above, this dives into a single evening of gentle tinkering.</p>
+                            <p>the rain, the soft lighting, the bedtime routine - these details matter because the future isn't just about efficiency, it's about whether we'll still have time for poetry and tenderness.</p>
+                        </div>
+                        
+                        <!-- Audio Log -->
+                        <div class="audio-log">
+                            <h4>audio log - day 247</h4>
+                            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+                                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2155635633&color=%2300ff88&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                            </iframe>
+                            <div class="soundcloud-credit">
+                                <a href="https://soundcloud.com/adamtpang" target="_blank">adampang.com</a> · 
+                                <a href="https://soundcloud.com/adamtpang/aria-log-day-247" target="_blank">aria log day 247</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
+    <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title gradient-text">What is Solarpunk?</h2>
-                <p class="section-subtitle">
-                    An optimistic vision of the future that imagines a world where humanity has learned to live in harmony with nature through sustainable technology
-                </p>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-card card-green">
-                    <h3>🌱 The Vision</h3>
-                    <p>
-                        Solarpunk envisions cities where buildings breathe with living walls, 
-                        where technology enhances rather than replaces nature, and where communities 
-                        thrive through cooperation and sustainable innovation.
+            <div class="about-content">
+                <div class="creation-story">
+                    <h3 class="subsection-title">origin</h3>
+                    <p class="about-description">
+                        created as a teaching prototype for a network school solarpunk art workshop. 
+                        instead of explaining the concept, i built an entire fictional universe in one day 
+                        on <strong><span id="creation-date"></span></strong>.
                     </p>
-                </div>
-                
-                <div class="about-card card-blue">
-                    <h3>⚡ The Technology</h3>
-                    <p>
-                        From solar-powered vertical farms to AI companions that help us understand 
-                        ecosystems better, solarpunk technology is designed to heal and enhance 
-                        our relationship with the natural world.
+                    <p class="about-description">
+                        three different storytelling formats to show the breadth of solarpunk imagination. 
+                        an educational experiment that became a creative universe.
                     </p>
-                </div>
-                
-                <div class="about-card card-orange">
-                    <h3>🎨 The Art Contest</h3>
-                    <p>
-                        This series was created as part of an art contest celebrating 
-                        optimistic futures. Each episode explores different aspects of 
-                        solarpunk storytelling through unique visual and narrative styles.
-                    </p>
-                </div>
-                
-                <div class="about-card card-white">
-                    <h3>⚡ Made in a Day</h3>
-                    <p>
-                        This entire series - from concept to website - was crafted in a single day 
-                        on <strong id="creation-date"></strong>. 
-                        A testament to rapid creative iteration and the power of focused artistic vision.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="why-solarpunk">
-                <div class="why-card">
-                    <h3>Why Solarpunk Matters</h3>
-                    <p>
-                        In a world often focused on dystopian futures, solarpunk offers something different: 
-                        hope. It shows us that another world is possible - one where we work with nature 
-                        instead of against it, where technology serves life, and where communities flourish 
-                        through collaboration and care.
-                    </p>
-                    <div class="hope-badge">
-                        The future is bright, and we're building it together 🌟
+                    <div class="creator-credit">
+                        by <a href="https://adampang.com" target="_blank" rel="noopener">adam</a>
                     </div>
                 </div>
             </div>
@@ -214,58 +196,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3 class="gradient-text">The Solarpunks</h3>
-                    <p>Optimistic stories from a future where technology and nature dance together in perfect harmony.</p>
+                    <h4>the solarpunks</h4>
+                    <p>a fictional universe in three acts</p>
                 </div>
-                
-                <div class="footer-social">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-link social-twitter" aria-label="Twitter">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link social-youtube" aria-label="YouTube">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link social-instagram" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-created">
-                    <h4>Created</h4>
-                    <div class="creation-info">
-                        <p><span class="highlight-green">⚡ Made in a day</span></p>
-                        <p id="footer-date"></p>
-                        <p>With love for the future 💚</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    © <span id="current-year"></span> The Solarpunks. Building better tomorrows today.
-                </div>
-                <div class="footer-tech">
-                    <span>Powered by</span>
-                    <span class="highlight-green">HTML5</span>
-                    <span>•</span>
-                    <span class="highlight-blue">CSS3</span>
-                    <span>•</span>
-                    <span class="highlight-orange">Optimism</span>
-                </div>
-            </div>
-            
-            <div class="footer-message">
-                <div class="future-message">
-                    🌱 The future is bright, and we're growing it together
+                <div class="footer-meta">
+                    <p><span id="footer-year"></span></p>
                 </div>
             </div>
         </div>

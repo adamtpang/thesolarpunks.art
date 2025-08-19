@@ -1,52 +1,53 @@
-# The Solarpunks - A Solarpunk Video Series
+# The Solarpunks
 
-A beautiful, responsive website for "The Solarpunks" video series - three optimistic stories from a future where technology and nature dance together.
-
-## 🚀 Quick Deploy to Vercel
-
-1. Push this code to GitHub
-2. Connect your GitHub repo to Vercel
-3. Deploy automatically!
-
-Or use Vercel CLI:
-```bash
-npm i -g vercel
-vercel --prod
-```
+A clean, minimal artist portfolio showcasing three interconnected solarpunk stories.
 
 ## 🎬 Episodes
 
-1. **Game Trailer Manifesto** - Epic solarpunk introduction, David Attenborough meets game trailer
-2. **Beetlemoses Comic** - Funny aliens reviewing/upgrading Earth, Rick & Morty style comedy  
-3. **ASMR Tinkerer** - Female engineer working on her robot companion, slice-of-life
+1. **Manifesto** - YouTube video: Epic game trailer introducing solarpunk philosophy
+2. **Galactic Review** - Interactive PDF comic: Alien social commentary on human efficiency
+3. **Aria's Workshop** - SoundCloud audio: ASMR engineer building robot companion
 
-## 🔧 Local Development
+## 🚀 Quick Deploy
 
+**Vercel (Recommended):**
+1. Go to [vercel.com](https://vercel.com)
+2. Drag & drop this folder
+3. Connect your `thesolarpunks.art` domain
+4. Deploy!
+
+**Netlify:**
+1. Go to [netlify.com/drop](https://netlify.com/drop)
+2. Drag & drop this folder
+3. Get instant live URL
+
+**GitHub Pages:**
 ```bash
-npm install
-npm run dev
+git add .
+git commit -m "Launch The Solarpunks portfolio"
+git push
+# Enable Pages in repo settings
 ```
 
-## 📝 To Update YouTube Videos
+## 📝 Add Your Content
 
-Replace the placeholder YouTube IDs in `src/components/EpisodeGrid.tsx`:
+**YouTube Video (Episode 1):** Already using your Manifesto video ID: `XHLkEImuiLQ`
 
-```typescript
-// Replace "dQw4w9WgXcQ" with your actual YouTube video IDs
-youtubeId: "YOUR_ACTUAL_VIDEO_ID"
-```
+**PDF Comic (Episode 2):** Add your `sunday_comic.pdf` file to the root directory
 
-## 🎨 Features
+**SoundCloud Audio (Episode 3):** Already embedded with your track ID
 
-- ✅ Solarpunk aesthetic (neon green/blue/orange)
-- ✅ Mobile responsive design
-- ✅ YouTube video embeds
-- ✅ Smooth scrolling navigation
-- ✅ Optimized for fast deployment
-- ✅ SEO ready
+## ✨ Features
 
-## 🌱 Made with Love
+- Clean, minimal black/white/green design 
+- Custom solarpunk cursor (star-shaped)
+- Interactive PDF comic viewer with navigation
+- SoundCloud audio integration
+- Mobile responsive with fallbacks
+- Fast loading with PDF.js CDN
+- Accessibility compliant
+- SEO optimized
 
-Created in a single day for an art contest celebrating optimistic futures.
+---
 
-**The future is bright, and we're building it together! 🌟**
+*Created in one day with hope for tomorrow*

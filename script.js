@@ -1,188 +1,208 @@
-// Set current date and year
+// Simple script for The Solarpunks website
 document.addEventListener('DOMContentLoaded', function() {
-    const currentDate = new Date().toLocaleDateString('en-US', {
+    // Set current date
+    const today = new Date();
+    const dateString = today.toLocaleDateString('en-US', {
         year: 'numeric',
-        month: 'long', 
+        month: 'long',
         day: 'numeric'
     });
     
-    const currentYear = new Date().getFullYear();
-    
-    // Update all date elements
-    const dateElements = [
-        'current-date',
-        'creation-date', 
-        'footer-date'
-    ];
-    
-    dateElements.forEach(id => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.textContent = currentDate;
-        }
-    });
+    // Update date elements
+    const creationDateEl = document.getElementById('creation-date');
+    if (creationDateEl) {
+        creationDateEl.textContent = dateString;
+    }
     
     // Update year
-    const yearElement = document.getElementById('current-year');
-    if (yearElement) {
-        yearElement.textContent = currentYear;
+    const footerYearEl = document.getElementById('footer-year');
+    if (footerYearEl) {
+        footerYearEl.textContent = today.getFullYear();
     }
-});
-
-// Smooth scrolling function
-function scrollToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-        element.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
+    
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
-    }
-}
-
-// Add scroll effects and animations
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
+    });
     
-    // Parallax effect for background orbs
-    const orbs = document.querySelectorAll('.bg-orb');
-    orbs.forEach((orb, index) => {
-        const speed = 0.5 + (index * 0.2);
-        orb.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-});
-
-// Add loading animation for episode cards
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe episode cards for animation
-document.addEventListener('DOMContentLoaded', function() {
+    // Simple fade-in effect for episode cards on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Apply fade-in to episode cards
     const episodeCards = document.querySelectorAll('.episode-card');
-    const aboutCards = document.querySelectorAll('.about-card');
-    
-    // Initially hide cards for animation
-    [...episodeCards, ...aboutCards].forEach((card, index) => {
+    episodeCards.forEach((card, index) => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
         observer.observe(card);
     });
-});
-
-// Add glow effect on hover for buttons
-document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.cta-button, .secondary-button');
     
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            this.style.boxShadow = '0 0 20px rgba(0, 255, 136, 0.5)';
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            this.style.boxShadow = '';
-        });
-    });
-});
-
-// Add typing effect to hero subtitle (optional enhancement)
-function typeText(element, text, speed = 50) {
-    let i = 0;
-    element.textContent = '';
-    
-    function typeWriter() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        }
+    // Apply fade-in to about content
+    const aboutContent = document.querySelector('.about-content');
+    if (aboutContent) {
+        aboutContent.style.opacity = '0';
+        aboutContent.style.transform = 'translateY(20px)';
+        aboutContent.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(aboutContent);
     }
-    
-    typeWriter();
-}
-
-// Enhanced scroll indicator interaction
-document.addEventListener('DOMContentLoaded', function() {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    
-    if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', function() {
-            scrollToSection('episodes');
-        });
-        
-        scrollIndicator.style.cursor = 'pointer';
-    }
-});
-
-// Add smooth color transitions for social links
-document.addEventListener('DOMContentLoaded', function() {
-    const socialLinks = document.querySelectorAll('.social-link');
-    
-    socialLinks.forEach(link => {
-        link.addEventListener('mouseenter', function() {
-            this.style.transition = 'all 0.3s ease';
-        });
-    });
 });
 
 // Keyboard navigation support
 document.addEventListener('keydown', function(event) {
-    if (event.key === 'ArrowDown' && event.ctrlKey) {
+    // Support Ctrl/Cmd + arrow keys for section navigation
+    if ((event.ctrlKey || event.metaKey) && event.key === 'ArrowDown') {
         event.preventDefault();
-        const currentSection = getCurrentSection();
-        const nextSection = getNextSection(currentSection);
-        if (nextSection) {
-            scrollToSection(nextSection);
+        const episodesSection = document.getElementById('episodes');
+        if (episodesSection) {
+            episodesSection.scrollIntoView({ behavior: 'smooth' });
         }
-    } else if (event.key === 'ArrowUp' && event.ctrlKey) {
+    } else if ((event.ctrlKey || event.metaKey) && event.key === 'ArrowUp') {
         event.preventDefault();
-        const currentSection = getCurrentSection();
-        const prevSection = getPrevSection(currentSection);
-        if (prevSection) {
-            scrollToSection(prevSection);
-        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 });
 
-function getCurrentSection() {
-    const sections = ['hero', 'episodes', 'about'];
-    const scrollPosition = window.scrollY + window.innerHeight / 2;
+// PDF.js functionality
+let pdfDoc = null;
+let pageNum = 1;
+let pageRendering = false;
+let pageNumPending = null;
+const scale = 1.5;
+const canvas = document.getElementById('pdf-canvas');
+const ctx = canvas?.getContext('2d');
+
+// PDF.js worker setup
+if (typeof pdfjsLib !== 'undefined') {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+
+function renderPage(num) {
+    if (!pdfDoc) return;
     
-    for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            const sectionTop = section.offsetTop;
-            const sectionBottom = sectionTop + section.offsetHeight;
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                return sectionId;
+    pageRendering = true;
+    
+    pdfDoc.getPage(num).then(function(page) {
+        const viewport = page.getViewport({ scale: scale });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        
+        const renderContext = {
+            canvasContext: ctx,
+            viewport: viewport
+        };
+        
+        const renderTask = page.render(renderContext);
+        
+        renderTask.promise.then(function() {
+            pageRendering = false;
+            if (pageNumPending !== null) {
+                renderPage(pageNumPending);
+                pageNumPending = null;
             }
-        }
+        });
+    });
+    
+    // Update page counters
+    document.getElementById('page-info').textContent = num + ' / ' + pdfDoc.numPages;
+    
+    // Update button states
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtn = document.getElementById('next-page');
+    
+    if (prevBtn) prevBtn.disabled = (num <= 1);
+    if (nextBtn) nextBtn.disabled = (num >= pdfDoc.numPages);
+}
+
+function queueRenderPage(num) {
+    if (pageRendering) {
+        pageNumPending = num;
+    } else {
+        renderPage(num);
+    }
+}
+
+function onPrevPage() {
+    if (pageNum <= 1) return;
+    pageNum--;
+    queueRenderPage(pageNum);
+}
+
+function onNextPage() {
+    if (!pdfDoc || pageNum >= pdfDoc.numPages) return;
+    pageNum++;
+    queueRenderPage(pageNum);
+}
+
+// Initialize PDF viewer
+function initPDF() {
+    const pdfPath = 'sunday_comic.pdf';
+    
+    if (typeof pdfjsLib === 'undefined') {
+        showPDFFallback();
+        return;
     }
     
-    return 'hero';
+    pdfjsLib.getDocument(pdfPath).promise.then(function(pdfDoc_) {
+        pdfDoc = pdfDoc_;
+        
+        // Initial page render
+        renderPage(pageNum);
+        
+        // Button event listeners
+        const prevBtn = document.getElementById('prev-page');
+        const nextBtn = document.getElementById('next-page');
+        
+        if (prevBtn) prevBtn.addEventListener('click', onPrevPage);
+        if (nextBtn) nextBtn.addEventListener('click', onNextPage);
+        
+    }).catch(function(error) {
+        console.error('Error loading PDF:', error);
+        showPDFFallback();
+    });
 }
 
-function getNextSection(currentSection) {
-    const sections = ['hero', 'episodes', 'about'];
-    const currentIndex = sections.indexOf(currentSection);
-    return sections[currentIndex + 1] || null;
+function showPDFFallback() {
+    const fallback = document.querySelector('.pdf-fallback');
+    const canvas = document.getElementById('pdf-canvas');
+    const controls = document.querySelector('.pdf-controls');
+    
+    if (fallback) fallback.style.display = 'block';
+    if (canvas) canvas.style.display = 'none';
+    if (controls) controls.style.display = 'none';
 }
 
-function getPrevSection(currentSection) {
-    const sections = ['hero', 'episodes', 'about'];
-    const currentIndex = sections.indexOf(currentSection);
-    return sections[currentIndex - 1] || null;
-}
+// Initialize PDF when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing initialization code...
+    
+    // Initialize PDF viewer
+    if (document.getElementById('pdf-canvas')) {
+        initPDF();
+    }
+});
