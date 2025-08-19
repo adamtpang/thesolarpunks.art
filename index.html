@@ -120,7 +120,15 @@
                                     <button id="next-page" class="pdf-btn">→</button>
                                 </div>
                             </div>
-                            <canvas id="pdf-canvas" class="pdf-canvas"></canvas>
+                            <div class="pdf-container">
+                                <canvas id="pdf-canvas" class="pdf-canvas"></canvas>
+                                <!-- Floating navigation -->
+                                <div class="pdf-float-nav">
+                                    <button id="prev-page-float" class="pdf-float-btn">←</button>
+                                    <span id="page-info-float">1 / 4</span>
+                                    <button id="next-page-float" class="pdf-float-btn">→</button>
+                                </div>
+                            </div>
                             <div class="pdf-fallback" style="display: none;">
                                 <p>pdf viewer not supported.</p>
                                 <a href="sunday_comic.pdf" download class="download-btn">download sunday comic</a>
