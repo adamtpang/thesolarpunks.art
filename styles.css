@@ -279,34 +279,47 @@ body {
 }
 
 .episode-card {
-    display: grid;
-    gap: 3rem;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     margin-bottom: 6rem;
-    padding: 2rem;
-    background: rgba(20, 20, 20, 0.5);
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
+    padding: 3rem;
+    background: rgba(20, 20, 20, 0.8);
+    border: 2px solid var(--border-light);
+    border-radius: 24px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
+    transition: all 0.3s ease;
 }
 
-@media (min-width: 768px) {
-    .episode-card:nth-child(odd) {
-        grid-template-columns: 1.2fr 1fr;
-    }
-    
-    .episode-card:nth-child(even) {
-        grid-template-columns: 1fr 1.2fr;
-    }
-    
-    .episode-card:nth-child(even) .episode-video,
-    .episode-card:nth-child(even) .episode-pdf {
-        order: 2;
-    }
-    
-    .episode-card:nth-child(even) .episode-content {
-        order: 1;
-    }
+.episode-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--solarpunk-green);
+    box-shadow: 0 12px 48px rgba(0, 255, 136, 0.2);
+}
+
+/* Episode Header with Badge */
+.episode-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.episode-badge {
+    width: 4rem;
+    height: 4rem;
+    background: var(--solarpunk-green);
+    color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3);
 }
 
 .episode-video {
@@ -317,13 +330,27 @@ body {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 60%; /* Slightly taller aspect ratio */
+    padding-bottom: 65%; /* Slightly taller aspect ratio */
     background: var(--background-card);
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 6px 30px rgba(0, 255, 136, 0.15);
+    box-shadow: 0 8px 40px rgba(0, 255, 136, 0.2);
     border: 2px solid var(--border);
-    min-height: 400px;
+    min-height: 450px;
+}
+
+@media (min-width: 768px) {
+    .video-embed {
+        min-height: 500px;
+        padding-bottom: 60%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .video-embed {
+        min-height: 600px;
+        padding-bottom: 55%;
+    }
 }
 
 .video-embed iframe {
@@ -342,33 +369,57 @@ body {
 
 .episode-title {
     font-family: 'Space Mono', monospace;
-    font-size: 2.25rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 900;
     color: var(--text-primary);
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
+    margin: 0;
+    line-height: 1.1;
     letter-spacing: 0.05em;
     text-transform: lowercase;
 }
 
+@media (min-width: 768px) {
+    .episode-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .episode-title {
+        font-size: 4rem;
+    }
+}
+
 .episode-subtitle {
     font-family: 'Space Mono', monospace;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: var(--solarpunk-green);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     line-height: 1.4;
     letter-spacing: 0.02em;
     text-transform: lowercase;
 }
 
+@media (min-width: 768px) {
+    .episode-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
 .episode-description {
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 2rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     letter-spacing: 0.01em;
-    font-weight: 500;
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .episode-description {
+        font-size: 1.3rem;
+    }
 }
 
 .episode-story {
