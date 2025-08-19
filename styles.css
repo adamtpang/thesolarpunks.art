@@ -986,74 +986,23 @@ button:focus {
     width: 100%;
     height: auto;
     background: white;
-    min-height: 600px;
+    max-height: 500px;
+    object-fit: contain;
     border-radius: 12px;
 }
 
 @media (min-width: 768px) {
     .pdf-canvas {
-        min-height: 700px;
+        max-height: 600px;
     }
 }
 
 @media (min-width: 1024px) {
     .pdf-canvas {
-        min-height: 800px;
+        max-height: 650px;
     }
 }
 
-/* Floating PDF Navigation */
-.pdf-float-nav {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    border: 2px solid var(--solarpunk-green);
-    box-shadow: 0 8px 24px rgba(0, 255, 136, 0.3);
-    backdrop-filter: blur(10px);
-    z-index: 20;
-}
-
-.pdf-float-btn {
-    background: var(--solarpunk-green);
-    border: none;
-    color: black;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 1.2rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.pdf-float-btn:hover {
-    background: var(--solarpunk-green-dark);
-    transform: scale(1.1);
-}
-
-.pdf-float-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: scale(1);
-}
-
-#page-info-float {
-    font-size: 0.9rem;
-    color: var(--solarpunk-green);
-    font-weight: bold;
-    min-width: 50px;
-    text-align: center;
-}
 
 .pdf-fallback {
     padding: 2rem;

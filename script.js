@@ -130,25 +130,14 @@ function renderPage(num) {
     
     // Update page counters
     const pageInfo = document.getElementById('page-info');
-    const pageInfoFloat = document.getElementById('page-info-float');
-    const pageText = num + ' / ' + pdfDoc.numPages;
-    
-    if (pageInfo) pageInfo.textContent = pageText;
-    if (pageInfoFloat) pageInfoFloat.textContent = pageText;
+    if (pageInfo) pageInfo.textContent = num + ' / ' + pdfDoc.numPages;
     
     // Update button states
     const prevBtn = document.getElementById('prev-page');
     const nextBtn = document.getElementById('next-page');
-    const prevBtnFloat = document.getElementById('prev-page-float');
-    const nextBtnFloat = document.getElementById('next-page-float');
     
-    const isFirstPage = (num <= 1);
-    const isLastPage = (num >= pdfDoc.numPages);
-    
-    if (prevBtn) prevBtn.disabled = isFirstPage;
-    if (nextBtn) nextBtn.disabled = isLastPage;
-    if (prevBtnFloat) prevBtnFloat.disabled = isFirstPage;
-    if (nextBtnFloat) nextBtnFloat.disabled = isLastPage;
+    if (prevBtn) prevBtn.disabled = (num <= 1);
+    if (nextBtn) nextBtn.disabled = (num >= pdfDoc.numPages);
 }
 
 function queueRenderPage(num) {
@@ -186,16 +175,12 @@ function initPDF() {
         // Initial page render
         renderPage(pageNum);
         
-        // Button event listeners - both header and floating
+        // Button event listeners
         const prevBtn = document.getElementById('prev-page');
         const nextBtn = document.getElementById('next-page');
-        const prevBtnFloat = document.getElementById('prev-page-float');
-        const nextBtnFloat = document.getElementById('next-page-float');
         
         if (prevBtn) prevBtn.addEventListener('click', onPrevPage);
         if (nextBtn) nextBtn.addEventListener('click', onNextPage);
-        if (prevBtnFloat) prevBtnFloat.addEventListener('click', onPrevPage);
-        if (nextBtnFloat) nextBtnFloat.addEventListener('click', onNextPage);
         
     }).catch(function(error) {
         console.error('Error loading PDF:', error);
