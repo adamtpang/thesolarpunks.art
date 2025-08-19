@@ -49,48 +49,49 @@ export default function EpisodeGrid() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12">
           {episodes.map((episode, index) => (
             <div 
               key={episode.id}
-              className="group relative bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-solarpunk-green/50 transition-all duration-500 hover:transform hover:scale-105"
+              className="group relative bg-black/50 backdrop-blur-md rounded-3xl p-8 lg:p-10 border-2 border-white/20 hover:border-solarpunk-green/60 transition-all duration-500 hover:transform hover:scale-105 shadow-2xl hover:shadow-solarpunk-green/20"
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              {/* Episode number badge */}
-              <div className={`absolute -top-3 -left-3 w-8 h-8 bg-${episode.color} rounded-full flex items-center justify-center text-black font-bold text-sm`}>
-                {episode.id}
+              {/* Title row with badge and title */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`w-12 h-12 lg:w-14 lg:h-14 bg-${episode.color} rounded-full flex items-center justify-center text-black font-black text-lg lg:text-xl shadow-lg flex-shrink-0`}>
+                  {episode.id}
+                </div>
+                <h3 className="text-2xl lg:text-3xl xl:text-4xl font-black text-white group-hover:text-solarpunk-green transition-colors leading-tight">
+                  {episode.title}
+                </h3>
               </div>
               
-              {/* Video container */}
-              <div className="video-container mb-6 bg-black/60 rounded-xl overflow-hidden border border-white/10">
+              {/* Theme badge */}
+              <div className="mb-6">
+                <span className={`px-4 py-2 text-sm lg:text-base bg-${episode.color}/20 text-${episode.color} rounded-full border-2 border-${episode.color}/40 font-bold`}>
+                  {episode.theme}
+                </span>
+              </div>
+              
+              {/* Description */}
+              <p className="text-solarpunk-light/90 text-base lg:text-lg leading-relaxed font-medium mb-8">
+                {episode.description}
+              </p>
+              
+              {/* Video container - At the bottom */}
+              <div className="video-container bg-black/80 rounded-2xl overflow-hidden border-2 border-white/20 shadow-xl group-hover:border-solarpunk-green/40 transition-all duration-500">
                 <iframe
                   src={`https://www.youtube.com/embed/${episode.youtubeId}`}
                   title={episode.title}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="w-full h-full"
+                  className="w-full h-64 lg:h-80 xl:h-96"
                 ></iframe>
               </div>
               
-              {/* Episode info */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-bold text-white group-hover:text-solarpunk-green transition-colors">
-                    {episode.title}
-                  </h3>
-                  <span className={`px-3 py-1 text-xs bg-${episode.color}/20 text-${episode.color} rounded-full border border-${episode.color}/30`}>
-                    {episode.theme}
-                  </span>
-                </div>
-                
-                <p className="text-solarpunk-light/80 text-sm leading-relaxed">
-                  {episode.description}
-                </p>
-              </div>
-              
-              {/* Hover glow effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-solarpunk-green/5 to-solarpunk-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              {/* Enhanced hover glow effect */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-solarpunk-green/10 via-transparent to-solarpunk-blue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             </div>
           ))}
         </div>
